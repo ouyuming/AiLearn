@@ -1,22 +1,30 @@
 from __future__ import division
+
+import concurrent.futures
 import os
 from PIL import Image
 import xml.dom.minidom
 import numpy as np
 import math
-import concurrent.futures
 
 
 # 未处理图片的存放路径
-JpgPath = r'C:/Users/ouyuming/Desktop/voc_tool/VOCdevkit/VOC2012/JPEGImages/'
+JpgPath = r'C:/Users/Administrator/Desktop/VOCdevkit/VOC2007/JPEGImages/'
 # 处理后图片的存放路径
-ProcessedPath = r'C:/Users/ouyuming/Desktop/exercise/'
+ProcessedPath = r'C:/Users/Administrator/Desktop/exercise/'
 #xml的存放路径
-AnnoPath = r'C:/Users/ouyuming/Desktop/voc_tool/VOCdevkit/VOC2012/Annotations/'
+AnnoPath = r'C:/Users/Administrator/Desktop/VOCdevkit/VOC2007/Annotations/'
 
-
+#创建一个txt文件,文件名为mytxtfile,并向文件写入msg
+def txt_creat(name,msg):
+    print('俺进来这个方法啦！')
+    desktop_path = "C:\\Users\\Administrator\\Desktop\\"
+    full_path = desktop_path + name + '.txt'
+    file = open(full_path,'w')
+    file.write(msg)
 
 def get_image(file_name):
+    print('测试')
     #获取图片
     image_name, ext = os.path.splitext(file_name) #分割路径中的文件名与拓展名
     imgfile = JpgPath + file_name #拼接图片的路径，找到指定路径
@@ -58,9 +66,11 @@ def get_image(file_name):
 
 if __name__ == '__main__':
     image_list = os.listdir(JpgPath)  # 拿到JpgPath路径下的所有图片
+    #需要理解透这句代码的执行原理
     with concurrent.futures.ProcessPoolExecutor() as executor:
         executor.map(get_image, image_list)
     print('图片获取完成 。。。！')
+    print('ceshi')
 
 
 
