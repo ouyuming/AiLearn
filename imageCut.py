@@ -25,6 +25,7 @@ def txt_creat(name,path):
     file.write(msg)
 
 
+
 def get_image(file_name):
     #获取图片
     image_name, ext = os.path.splitext(file_name) #分割路径中的文件名与拓展名
