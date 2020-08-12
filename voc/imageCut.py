@@ -18,7 +18,7 @@ AnnoPath = r'C:/Users/ouyuming/Desktop/pyProjects/voc/file/VOC2007/Annotations/'
 #创建一个txt文件,文件名为mytxtfile,并向文件写入msg
 def txt_creat(name,path):
     print('俺进来这个方法啦！')
-    desktop_path = "C:\\Users\\ouyuming\\Desktop\\pyProjects\\voc\\file\\"
+    desktop_path = "/file\\"
     full_path = desktop_path + 'voc.txt'
     file = open(full_path,'a+') #新的内容将会被写入到已有内容之后
     msg = path + ":" + name + "\n"

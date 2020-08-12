@@ -7,7 +7,7 @@ import torch
 
 sys.setrecursionlimit(10000000)
 
-data_path = 'C:/Users/ouyuming/Desktop/pyProjects/voc/file/exercise'
+data_path = '/file/exercise'
 phase = 'test'
 
 #totalpath = '{}/{}'.format(data_path, phase)
